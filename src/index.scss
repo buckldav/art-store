@@ -1,0 +1,180 @@
+@import "variables.scss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: $primaryFontFamily;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $primaryColor;
+  text-align: center;
+}
+
+a {
+  color: $linkColor;
+}
+
+/* Buttons styles start */
+button {
+  display: inline-block;
+  border: none;
+  padding: 1em;
+  margin: 0;
+  text-decoration: none;
+  background: #fff;
+  color: #000;
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+  background: #ccc;
+}
+
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+/* Button styles end */
+
+main.center-vert {
+  margin: 0 auto;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#container {
+  margin-left: $sidebarWidth; 
+  width: calc(100vw - #{$sidebarWidth});
+}
+
+#mobile-header {
+  display: none;
+  height: 60px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0);
+  z-index: -10;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+}
+
+#overlay.show {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+#overlay.hide {
+  background: rgba(0, 0, 0, 0);
+  z-index: -10;
+}
+
+#root {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+#site-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#site-nav>a {
+  padding: 0.5em 1em;
+  text-decoration: none;
+}
+
+#site-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: $sidebarWidth;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: $sidebarBackground;
+  z-index: 100;
+}
+
+#site-sidebar>h1 {
+  font-size: 2em;
+  margin-top: 0;
+}
+
+@media screen and (min-width: $lg) {
+
+}
+
+@media screen and (max-width: $lg) and (min-width: $sm) {
+  main.center-vert {
+    width: calc(100vw - #{$sidebarWidth} - 4em);
+  }
+}
+
+@media screen and (max-width: $sm) {
+  main.center-vert {
+    padding: 0 1em;
+    max-width: 560px;
+    min-height: calc(100vh - 60px);
+  }
+
+  #container {
+    margin: 0; 
+    width: 100vw;
+  }
+
+  #mobile-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #mobile-header>span {
+    margin-left: 1em; 
+  }
+
+  #sidebar-button {
+    width: 60px;
+    height: 60px;
+  }
+
+  #site-sidebar {
+    transition: left 250ms ease-in-out, transform 150ms ease;
+  }
+
+  #site-sidebar,
+  #site-sidebar.close {
+    left: -$sidebarWidth;
+  }
+
+  #site-sidebar.open {
+    left: 0;
+  }
+}
