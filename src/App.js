@@ -8,9 +8,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faPalette } from '@fortawesome/free-solid-svg-icons';
+import { fab, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
-library.add(faBars)
-library.add(faPalette)
+library.add(fab, faBars, faPalette, faFacebookF, faInstagram)
 
 function App() {
   return (

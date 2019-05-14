@@ -1,4 +1,5 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Sidebar = () => (
   <aside id="site-sidebar">
@@ -8,6 +9,10 @@ const Sidebar = () => (
       <a href="/">STORE</a>
       <a href="/about">ABOUT</a>
       <a href="/contact">CONTACT</a>
+      <span id="social">
+        <FontAwesomeIcon icon={["fab", "facebook-f"]} />
+        <FontAwesomeIcon icon={["fab", "instagram"]} />
+      </span>
     </nav>
   </aside>
 )
